@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "CampusConnect",
+    "slug": "campusconnect",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.campusconnect.chat"
+    },
+    "android": {
+      "package": "com.campusconnect.chat",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with classmates.",
+          "cameraPermission": "The app accesses your camera to capture and share photos in campus chats."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "CampusConnect needs camera access to capture and share photos in campus chats."
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a1fd21e2-7cae-45c4-b82e-92223d80a574"
+      }
+    }
+  }
+}
