@@ -20,7 +20,7 @@
 
 export const API_CONFIG = {
   // Configured for local development via adb reverse tcp:3000 tcp:3000
-  BASE_URL: 'http://localhost:3000',
+  BASE_URL: 'https://campus-connect-ad.vercel.app/',
   TIMEOUT_MS: 10000,
   DEFAULT_HEADERS: {
     'Content-Type': 'application/json',
