@@ -185,8 +185,13 @@ app.post('/message', (req, res) => {
   res.status(201).json(newMessage);
 });
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`✓ CampusConnect Backend running on port ${PORT}`);
-  console.log(`✓ Health check available at http://localhost:${PORT}/`);
-});
+// Start Server if run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`✓ CampusConnect Backend running on port ${PORT}`);
+    console.log(`✓ Health check available at http://localhost:${PORT}/`);
+  });
+}
+
+// Export app for Vercel Serverless Functions
+module.exports = app;
