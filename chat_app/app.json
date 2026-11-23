@@ -40,7 +40,17 @@
         {
           "cameraPermission": "CampusConnect needs camera access to capture and share photos in campus chats."
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "enableProguardInReleaseBuilds": true,
+            "enableShrinkResourcesInReleaseBuilds": true
+          }
+        }
       ]
+
     ],
     "extra": {
       "eas": {
