@@ -12,6 +12,7 @@
 
 const express = require('express');
 const cors = require('cors');
+const { openApiSpec, getSwaggerHtml } = require('./swagger');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -99,8 +100,20 @@ app.get('/', (req, res) => {
     status: 'online',
     app: 'CampusConnect Backend API',
     version: '1.0.0',
-    endpoints: ['/user', '/user/profile', '/conversation', '/message'],
+    documentation: '/docs',
+    endpoints: ['/docs', '/openapi.json', '/user', '/user/profile', '/conversation', '/message'],
   });
+});
+
+// Interactive API Documentation (Swagger UI)
+app.get('/docs', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  res.send(getSwaggerHtml(openApiSpec));
+});
+
+// OpenAPI 3.0 JSON Specification
+app.get('/openapi.json', (req, res) => {
+  res.json(openApiSpec);
 });
 
 // 1. GET /user - Retrieve all campus students
@@ -190,6 +203,7 @@ if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`✓ CampusConnect Backend running on port ${PORT}`);
     console.log(`✓ Health check available at http://localhost:${PORT}/`);
+    console.log(`✓ Interactive API Docs available at http://localhost:${PORT}/docs`);
   });
 }
 
